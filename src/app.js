@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('./config/morgan');
 const config = require('./config/config');
+const compression = require('compression');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,7 +16,14 @@ if (config.env !== 'test') {
 app.use(express.json());
 
 //for reading form data
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+// gzip compression
+app.use(compression());
+
+// enable cors
+app.use(cors());
+app.options('*', cors());
 
 //ROUTES
 
