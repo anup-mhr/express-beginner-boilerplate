@@ -8,12 +8,7 @@ const {
   UpdateDateColumn,
 } = require('typeorm');
 const User = require('./user.model');
-
-const tokenTypes = {
-  REFRESH: 'refresh',
-  RESET_PASSWORD: 'reset_password',
-  VERIFY_EMAIL: 'verify_email',
-};
+const { tokenTypes } = require('../config/tokens');
 
 @Entity({ name: 'tokens' })
 class Token {

@@ -1,6 +1,5 @@
 const { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } = require('typeorm');
-
-const roles = ['user', 'admin'];
+const { roles } = require('../config/roles');
 
 @Entity({ name: 'user' })
 class User {
